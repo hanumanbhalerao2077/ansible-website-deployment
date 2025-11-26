@@ -1,0 +1,18 @@
+# Python virtualenv
+venv/
+ansible-venv/
+__pycache__/
+
+# SSH Keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# OS useless files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/

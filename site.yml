@@ -1,0 +1,114 @@
+---
+- name: Deploy Modern Website with HTML + CSS (Ansible Playbook)
+  hosts: localhost
+  become: yes
+
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy Stylish Ansible Website
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Ansible Automation – Website Deployment</title>
+              <style>
+                  body {
+                      margin: 0;
+                      padding: 0;
+                      font-family: 'Segoe UI', sans-serif;
+                      background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+                      color: #ffffff;
+                      text-align: center;
+                  }
+                  header {
+                      padding: 40px 20px;
+                  }
+                  h1 {
+                      font-size: 48px;
+                      margin-bottom: 10px;
+                      color: #e0e1dd;
+                      text-transform: uppercase;
+                      letter-spacing: 2px;
+                  }
+                  h2 {
+                      font-size: 22px;
+                      margin-top: 0;
+                      color: #cdd5df;
+                      font-weight: 400;
+                  }
+                  .card {
+                      background: rgba(255,255,255,0.1);
+                      padding: 25px;
+                      margin: 40px auto;
+                      width: 80%;
+                      max-width: 900px;
+                      border-radius: 18px;
+                      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                      backdrop-filter: blur(8px);
+                  }
+                  .card p {
+                      line-height: 1.7;
+                      font-size: 18px;
+                      color: #eef1f3;
+                  }
+                  .tag {
+                      display: inline-block;
+                      background: #778da9;
+                      color: #0d1b2a;
+                      padding: 10px 20px;
+                      margin-top: 20px;
+                      border-radius: 10px;
+                      font-size: 16px;
+                  }
+                  footer {
+                      margin-top: 50px;
+                      padding: 15px;
+                      color: #cdd5df;
+                      font-size: 14px;
+                  }
+              </style>
+          </head>
+          <body>
+              <header>
+                  <h1>Ansible Website Deployment</h1>
+                  <h2>Automated using Ansible Playbook on AWS EC2</h2>
+              </header>
+
+              <div class="card">
+                  <p>
+                      This website was deployed automatically using Ansible.<br>
+                      No manual steps, no copying files — just pure automation.<br><br>
+                      This is your **first real DevOps automation project**.<br>
+                      You're officially entering the world of Infrastructure as Code.
+                  </p>
+
+                  <div class="tag">🚀 Powered by Ansible Automation</div>
+              </div>
+
+              <footer>
+                 © 2025 — Automated Deployment | Learning DevOps Journey
+              </footer>
+          </body>
+          </html>
+        owner: www-data
+        group: www-data
+        mode: '0644'
