@@ -18,6 +18,4 @@ It automatically deploys a custom HTML + CSS website on Nginx using Ansible.
 ansible-playbook -i inventory site.yml
 
 
-## Tags
-ansible, devops, automation, nginx, playbook, aws
->>>>>>> a5023be (Initial commit: Ansible Website Deployment)
+<img width="1365" height="731" alt="Screenshot 2025-11-26 104950" src="https://github.com/user-attachments/assets/77b68344-9423-489c-9869-eb54f89885ca" />
